@@ -25,6 +25,7 @@ RUN apt-get install -y --no-install-recommends oracle-java8-installer
 # xserver
 RUN apt-get install -y --no-install-recommends xserver-xorg xinit xterm xdm xrdp tightvncserver
 RUN apt-get install -y --no-install-recommends xvfb lxde xfonts-base
+RUN sed -e '/\[xrdp2\]/,$d' -e 's/=ask/=developer/g' -i /etc/xrdp/xrdp.ini
 
 # add a developer
 RUN apt-get install -y --no-install-recommends sudo
